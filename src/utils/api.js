@@ -87,7 +87,7 @@ export async function fetchProductsByHandles(handles, country) {
       return {
         handle,
         title: product.title,
-        url: `/products/${handle}`,
+        url: `${window.Shopify?.routes?.root ?? '/'}products/${handle}`,
         productType: product.productType,
         image: product.featuredImage?.url ?? null,
         imageAlt: product.featuredImage?.altText ?? product.title,

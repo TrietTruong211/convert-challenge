@@ -8,7 +8,13 @@ export default function LookbookSection() {
     looks: [],
 
     async init() {
-      const handles = JSON.parse(this.$el.dataset.productHandles || '[]');
+      let handles;
+      try {
+        handles = JSON.parse(this.$el.dataset.productHandles || '[]');
+      } catch {
+        console.error('[LookbookSection] Failed to parse product handles');
+        handles = [];
+      }
 
       if (!handles.length) {
         this.loading = false;
