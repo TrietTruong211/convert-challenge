@@ -35,7 +35,6 @@ export async function fetchProductsByHandles(handles, country) {
   const productFields = `
     handle
     title
-    productType
     featuredImage {
       url(transform: { 
         maxWidth: 600, 
@@ -88,7 +87,6 @@ export async function fetchProductsByHandles(handles, country) {
         handle,
         title: product.title,
         url: `${window.Shopify?.routes?.root ?? '/'}products/${handle}`,
-        productType: product.productType,
         image: product.featuredImage?.url ?? null,
         imageAlt: product.featuredImage?.altText ?? product.title,
         price: formatNumber(price.amount, price.currencyCode),

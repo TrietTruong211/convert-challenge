@@ -16,16 +16,19 @@ export default function LookbookSection() {
         handles = [];
       }
 
-      if (!handles.length) {
+      const currentHandle = this.$el.dataset.currentHandle || null;
+      const filteredHandles = currentHandle ? handles.filter((handle) => handle !== currentHandle) : handles;
+
+      if (!filteredHandles.length) {
         this.loading = false;
         return;
       }
 
       const country = this.$el.dataset.country || window.storefrontContext?.country || 'AU';
-      this.skeletonCount = handles.length;
+      this.skeletonCount = filteredHandles.length;
 
       try {
-        this.looks = await fetchProductsByHandles(handles, country);
+        this.looks = await fetchProductsByHandles(filteredHandles, country);
       } catch (error) {
         console.error('[LookbookSection] Failed to fetch products:', error);
         this.error = true;
