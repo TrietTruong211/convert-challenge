@@ -1,0 +1,8 @@
+node_modules/
+src/
+vite.config.js
+postcss.config.js
+tailwind.config.js
+package.json
+pnpm-lock.yaml
+.gitignore
