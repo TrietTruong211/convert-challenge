@@ -4,6 +4,7 @@
     - title             {String}  Section heading
     - description       {String}  Optional subheading from metaobject
     - product_handles   {Array}   List of product handle strings
+    - current_handle    {String}  Optional handle to exclude (e.g. current product)
     - section_id        {String}  Section ID for Alpine scoping
 {% endcomment %}
 
@@ -12,15 +13,18 @@
   x-data="lookbookSection"
   data-section-id="{{ section_id }}"
   data-product-handles="{{ product_handles | json | escape }}"
+  data-current-handle="{{ current_handle }}"
   data-country="{{ localization.country.iso_code }}"
 >
-  {% if title != blank %}
-    <h2 class="mb-4 text-7xl font-bold tracking-tight">{{ title }}</h2>
-  {% endif %}
-  {% if description != blank %}
-    <p class="mb-10 text-2xl text-gray-500">{{ description }}</p>
-  {% else %}
-    <div class="mb-10"></div>
+  {% if title != blank or description != blank %}
+    <div class="mb-10">
+      {% if title != blank %}
+        <h2 class="mb-4 text-7xl font-bold tracking-tight">{{ title }}</h2>
+      {% endif %}
+      {% if description != blank %}
+        <p class="text-2xl text-gray-500">{{ description }}</p>
+      {% endif %}
+    </div>
   {% endif %}
 
   <div x-show="loading" class="grid grid-cols-2 gap-4 md:grid-cols-4">
