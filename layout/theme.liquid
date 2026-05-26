@@ -36,6 +36,13 @@
     })(window,document,'script','dataLayer','GTM-52LKQ56P');</script>
     <!-- End Google Tag Manager -->
 
+    <script>
+      window.storefrontContext = {
+        token: {{ settings.storefront_api_token | json }},
+        shop: {{ shop.permanent_domain | json }},
+        country: {{ localization.country.iso_code | json }}
+      };
+    </script>
     <script src="{{ 'app.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>

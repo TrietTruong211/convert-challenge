@@ -1,0 +1,28 @@
+{% liquid
+  assign lookbook = product.metafields.custom.lookbook.value
+  assign product_handles = lookbook.product_handles.value | default: blank
+  assign title = lookbook.title.value | default: 'Complete the Look'
+  assign description = lookbook.description.value
+%}
+
+{% if product_handles != blank %}
+  {% render 'lookbook',
+    title: title,
+    description: description,
+    product_handles: product_handles,
+    section_id: section.id
+  %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Lookbook (Product)",
+  "tag": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Lookbook (Product)"
+    }
+  ]
+}
+{% endschema %}

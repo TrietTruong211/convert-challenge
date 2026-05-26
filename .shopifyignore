@@ -6,3 +6,6 @@ tailwind.config.js
 package.json
 pnpm-lock.yaml
 .gitignore
+config/settings_data.json
+templates/*.json
+sections/*.json

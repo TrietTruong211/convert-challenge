@@ -5,6 +5,7 @@
 @use './base/animations';
 
 // Sections
+@use './sections/lookbook';
 
 // Tailwind layers — processed by PostCSS after sass compilation
 @tailwind base;
