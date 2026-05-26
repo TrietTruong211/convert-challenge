@@ -8,6 +8,17 @@
     "theme_support_url": "https://support.shopify.com/"
   },
   {
+    "name": "Storefront API",
+    "settings": [
+      {
+        "type": "text",
+        "id": "storefront_api_token",
+        "label": "Storefront API Access Token",
+        "info": "Public Storefront API token. Found in Shopify Admin > Apps > Develop apps > your app > API credentials."
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.logo.name",
     "settings": [
       {

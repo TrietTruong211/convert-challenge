@@ -1,0 +1,34 @@
+{% liquid
+  assign lookbook = section.settings.lookbook
+  assign title = lookbook.title.value
+  assign description = lookbook.description.value
+  assign product_handles = lookbook.product_handles.value | default: blank
+%}
+
+{% if product_handles != blank %}
+  {% render 'lookbook',
+    title: title,
+    description: description,
+    product_handles: product_handles,
+    section_id: section.id
+  %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Lookbook",
+  "settings": [
+    {
+      "type": "metaobject",
+      "id": "lookbook",
+      "label": "Lookbook",
+      "metaobject_type": "lookbook"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lookbook"
+    }
+  ]
+}
+{% endschema %}
