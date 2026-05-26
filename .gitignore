@@ -3,3 +3,6 @@ node_modules/
 *.local
 assets/app.js
 assets/app.css
+config/settings_data.json
+templates/*.json
+sections/*.json
